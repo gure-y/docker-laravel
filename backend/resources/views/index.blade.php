@@ -11,7 +11,7 @@
       <span>商品名{{ $item->name }}</span>
       <span>ブランド{{ $item->bland }}</span>
       <span>値段{{ $item->price }}</span>
-      <span>画像{{ $item->image }}</span>
+      <span>画像<img src="../../uploads/{{ $item->image }}" width="200px" height="200px"></span>
     </div>
     @endforeach
   @endif
