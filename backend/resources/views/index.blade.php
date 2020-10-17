@@ -46,6 +46,7 @@
             <img src="../../uploads/{{ $item->image }}" class="card-img-top">
             <div class="card-body">
               <h5 class="card-title">{{ $item->name }}</h5>
+              <a href="{{ route('edit', ['id'=>$item->id]) }}">編集</a>
               <p class="card-text">¥{{ $item->price }}</p>
             </div>
           </div>
