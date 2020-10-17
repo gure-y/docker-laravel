@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ItemsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/',[ItemsController::class, 'index'])->name('index');
+
+Route::get('/create',[ItemsController::class, 'create'])->name('create');
+Route::post('/store',[ItemsController::class, 'store'])->name('store');
