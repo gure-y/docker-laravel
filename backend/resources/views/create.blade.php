@@ -1,5 +1,5 @@
 @extends('layout')
-
+@section('title', '商品投稿')
 @section('content')
 
 <form method="POST" action="{{ route('store') }}" enctype="multipart/form-data">
