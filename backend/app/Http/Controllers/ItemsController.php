@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Http\Requests\ItemValid;
 use App\Models\Item;
 
 class ItemsController extends Controller
@@ -16,7 +17,7 @@ class ItemsController extends Controller
         return view('create');
     }
 
-    public function store(Request $request){
+    public function store(ItemValid $request){
         if ($file = $request->image) {
             $fileName = time() . $file->getClientOriginalName();
             $target_path = public_path('uploads/');
