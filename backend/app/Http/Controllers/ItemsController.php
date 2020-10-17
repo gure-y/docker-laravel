@@ -66,4 +66,13 @@ class ItemsController extends Controller
         return redirect()->route('index');
     }
 
+    public function delete($id){
+        if (empty($id)) {
+            \Session::flash('err_msg', 'データがありません');
+            return redirect()->route('index');
+        }
+        $item = Item::destroy($id);
+        return redirect()->route('index');
+    }
+
 }
