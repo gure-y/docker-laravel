@@ -18,3 +18,6 @@ Route::get('/',[ItemsController::class, 'index'])->name('index');
 
 Route::get('/create',[ItemsController::class, 'create'])->name('create');
 Route::post('/store',[ItemsController::class, 'store'])->name('store');
+
+Route::get('/edit/{id}', [ItemsController::class, 'edit'])->name('edit');
+Route::post('/update', [ItemsController::class, 'update'])->name('update');
