@@ -21,3 +21,5 @@ Route::post('/store',[ItemsController::class, 'store'])->name('store');
 
 Route::get('/edit/{id}', [ItemsController::class, 'edit'])->name('edit');
 Route::post('/update', [ItemsController::class, 'update'])->name('update');
+
+Route::get('/delete/{id}', [ItemsController::class, 'delete'])->name('delete');
