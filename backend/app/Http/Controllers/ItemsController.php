@@ -17,8 +17,22 @@ class ItemsController extends Controller
     }
 
     public function store(Request $request){
-        $inputs = $request->all();
-        Item::create($inputs);
+        if ($file = $request->image) {
+            $fileName = time() . $file->getClientOriginalName();
+            $target_path = public_path('uploads/');
+            $file->move($target_path, $fileName);
+        } else {
+            $fileName = "";
+        }
+        $item = new item;
+        $item->name = $request->name;
+        $item->bland = $request->bland;
+        $item->price = $request->price;
+        $item->line = $request->line;
+        $item->dress_length = $request->dress_length;
+        $item->url = $request->url;
+        $item->image = $fileName;
+        $item->save();
         return redirect()->route('index');
     }
 }
