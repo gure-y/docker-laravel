@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Http\Requests\ItemValid;
-use App\Models\Item;
+use App\Http\Requests\ItemValid; //バリデーション
+use Illuminate\Support\Facades\Auth; //ユーザー認証
+use App\Models\Item; //itemモデル
+use App\Models\Bookmark; //bookmarkモデル、、、。
 
 class ItemsController extends Controller
 {
@@ -12,9 +14,9 @@ class ItemsController extends Controller
       return view('index', ['items' => $items]);
     }
 
-    // createのviewをレンダリング
+    
     public function create(){
-        return view('create');
+        return view('create');// createのviewをレンダリング
     }
 
     public function store(ItemValid $request){
@@ -75,4 +77,21 @@ class ItemsController extends Controller
         return redirect()->route('index');
     }
 
+    public function bookmark()
+    {
+        $user_id = Auth::id();
+        $bookmarks = Bookmark::where('user_id', $user_id)->get();
+        return view('bookmark',['bookmarks' => $bookmarks]);
+    }
+
+    public function addBookmark(Request $request)
+    {
+        $user_id = Auth::id();
+        $item_id = $request->item_id;
+
+        $bookmark_add_info = Bookmark::firstOrCreate(['item_id' =>$item_id, 'user_id' =>$user_id]);
+
+        $bookmarks = Bookmark::where('user_id', $user_id)->get();
+        return view('bookmark',['bookmarks' => $bookmarks]);
+    }
 }
