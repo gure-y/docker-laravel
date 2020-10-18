@@ -29,7 +29,7 @@ Auth::routes();
 // に記述されているauthメソッドを呼び出している。
 // これではじめから用意されているuser系のルーティングは記述する必要がなくなる(devise forみたいなもの)
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// App\Http\Controllers\HomeControllerにある'index'クラスの内容を読み込んでいる。URLは/home,他から呼び出すときの名前もhome
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/bookmark', [ItemsController::class, 'bookmark'])->name('bookmark');
 Route::post('/bookmark', [ItemsController::class, 'addBookmark'])->name('addBookmark');
