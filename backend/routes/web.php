@@ -23,6 +23,13 @@ Route::get('/edit/{id}', [ItemsController::class, 'edit'])->name('edit');
 Route::post('/update', [ItemsController::class, 'update'])->name('update');
 
 Route::get('/delete/{id}', [ItemsController::class, 'delete'])->name('delete');
-Auth::routes();
+
+Auth::routes(); 
+// ↑は、vendor/laravel/framework/src/Illuminate/Routing/Router.php
+// に記述されているauthメソッドを呼び出している。
+// これではじめから用意されているuser系のルーティングは記述する必要がなくなる(devise forみたいなもの)
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// App\Http\Controllers\HomeControllerにある'index'クラスの内容を読み込んでいる。URLは/home,他から呼び出すときの名前もhome
+Route::get('/bookmark', [ItemsController::class, 'bookmark'])->name('bookmark');
+Route::post('/bookmark', [ItemsController::class, 'addBookmark'])->name('addBookmark');
