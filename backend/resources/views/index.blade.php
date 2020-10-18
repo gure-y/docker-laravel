@@ -49,6 +49,11 @@
               <p class="card-text">¥{{ $item->price }}</p>
               <a href="{{ route('edit', ['id'=>$item->id]) }}">編集</a>
               <a href="{{ route('delete', ['id'=>$item->id]) }}" id="btn-bell">削除</a>
+              <form method="POST" action="{{ route('addBookmark') }}">
+                @csrf
+                <input type="hidden" name="item_id" value="{{ $item->id }}">
+                <input type="submit" value="ブックマーク">
+              </form>
             </div>
           </div>
         </div>
