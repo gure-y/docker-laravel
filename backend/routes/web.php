@@ -23,3 +23,6 @@ Route::get('/edit/{id}', [ItemsController::class, 'edit'])->name('edit');
 Route::post('/update', [ItemsController::class, 'update'])->name('update');
 
 Route::get('/delete/{id}', [ItemsController::class, 'delete'])->name('delete');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
