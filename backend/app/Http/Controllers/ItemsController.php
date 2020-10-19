@@ -77,6 +77,12 @@ class ItemsController extends Controller
         return redirect()->route('index');
     }
 
+    public function show($id)
+    {
+        $item = Item::findOrFail($id);
+        return view('show', ['item' => $item]);
+    }
+
     public function bookmark()
     {
         $user_id = Auth::id();
