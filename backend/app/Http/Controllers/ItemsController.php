@@ -77,6 +77,12 @@ class ItemsController extends Controller
         return redirect()->route('index');
     }
 
+    public function show($id)
+    {
+        $item = Item::findOrFail($id);
+        return view('show', ['item' => $item]);
+    }
+
     public function bookmark()
     {
         $user_id = Auth::id();
@@ -88,10 +94,14 @@ class ItemsController extends Controller
     {
         $user_id = Auth::id();
         $item_id = $request->item_id;
-
         $bookmark_add_info = Bookmark::firstOrCreate(['item_id' =>$item_id, 'user_id' =>$user_id]);
-
+        if($bookmark_add_info->wasRecentlyCreated){
+            $message = 'ブックマークしました';
+        }
+        else{
+            $message = 'ブックマーク済みです';
+        }
         $bookmarks = Bookmark::where('user_id', $user_id)->get();
-        return view('bookmark',['bookmarks' => $bookmarks]);
+        return view('bookmark', compact('bookmarks', 'message'));
     }
 }

@@ -24,6 +24,8 @@ Route::post('/update', [ItemsController::class, 'update'])->name('update');
 
 Route::get('/delete/{id}', [ItemsController::class, 'delete'])->name('delete');
 
+Route::get('/show/{id}', [ItemsController::class, 'show'])->name('show');
+
 Auth::routes(); 
 // ↑は、vendor/laravel/framework/src/Illuminate/Routing/Router.php
 // に記述されているauthメソッドを呼び出している。

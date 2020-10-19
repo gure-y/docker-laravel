@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ Auth::user()->name }}mypage</div>
-
+                <p class="text-center">{{ $message ?? ''}}</p><br>
                 <div class="card-body">
                     @foreach($bookmarks as $bookmark)
                         <div class="col-md-4 text-left mt-4">
