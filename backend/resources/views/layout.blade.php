@@ -57,6 +57,9 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
+                                    <a class="dropdown-item" href="{{ route('bookmark') }}">
+                                        MyPage
+                                    </a>
                                 </div>
                             </li>
                         @endguest
