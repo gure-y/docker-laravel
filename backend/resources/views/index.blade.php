@@ -10,13 +10,13 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="image/onepiece.jpg" class="d-block w-100" alt="...">
+      <img src="image/onepiece.jpg?<?php echo date("YmdHis");?>" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="image/onepiece2.jpg" class="d-block w-100" alt="...">
+      <img src="image/onepiece2.jpg?<?php echo date("YmdHis");?>" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="image/onepiece3.jpg" class="d-block w-100" alt="...">
+      <img src="image/onepiece3.jpg?<?php echo date("YmdHis");?>" class="d-block w-100" alt="...">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -33,29 +33,27 @@
   <h5>FEATURED PRODUCTS</h5>
 </div>
 
-<div class="container py-4">
-  @if(!isset($items[0]))
-    <span>登録なし</span>
-  @else
-    @foreach ($items as $item)
-    <div class="col-md-4 text-left mt-4">
-      <div class="card-deck">
-        <div class="img-flex-4">
-          <div class="card">
-            <a href="{{ route('show', $item->id) }}">
-              <p class="card-text"><small class="text-muted">　{{ $item->bland }}</small></p>
-              <img src="../../uploads/{{ $item->image }}" class="card-img-top">
-            </a>
-            <div class="card-body">
-              <h5 class="card-title">{{ $item->name }}</h5>
-              <p class="card-text">¥{{ $item->price }}</p>
-            </div>
+<div class="container py-4 center-block">
+  <div class="row">
+    @if(!isset($items[0]))
+      <span>登録なし</span>
+    @else
+      @foreach ($items as $item)
+      <div class="col-md-3 text-left mt-4">
+        <div class="card">
+          <a href="{{ route('show', $item->id) }}">
+            <p class="card-text"><small class="text-muted">　{{ $item->bland }}</small></p>
+            <img src="../../uploads/{{ $item->image }}" class="card-img-top">
+          </a>
+          <div class="card-body">
+            <p class="card-title">{{ $item->name }}</p>
+            <p class="card-text">¥{{ $item->price }}</p>
           </div>
         </div>
       </div>
-    </div>
-    @endforeach
-  @endif
+      @endforeach
+    @endif
+  </div>
 </div>
 <a href="{{ route('create') }}">商品を追加</a>
 
