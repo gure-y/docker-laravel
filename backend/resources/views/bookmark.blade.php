@@ -11,7 +11,7 @@
             <div class="card-deck">
             <div class="img-flex-4">
                 <div class="card">
-                    <a href="{{ route('show', $item->id) }}">
+                    <a href="{{ route('show', $bookmark->item->id) }}">
                         <p class="card-text"><small class="text-muted">　{{ $bookmark->item->bland }}</small></p>
                         <img src="../../uploads/{{ $bookmark->item->image }}" class="card-img-top">
                     </a>
