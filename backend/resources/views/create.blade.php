@@ -2,26 +2,41 @@
 @section('title', '商品投稿')
 @section('content')
 
+<div class="container">
 <form method="POST" action="{{ route('store') }}" enctype="multipart/form-data">
     @csrf
-    <p>商品名</p>
-    <textarea name="name"></textarea>
-    <p>ブランド</p>
-    <textarea name="bland"></textarea>
-    <p>画像</p>
-    <input type="file" name="image">
-    <p>値段</p>
-    <input name="price">
-    <p>形</p>
-    <textarea name="line"></textarea>
-    <p>着丈</p>
-    <textarea name="dress_length"></textarea>
-    <p>URL</p>
-    <textarea name="url"></textarea>
-
-
-    <button type="submit">作成</button>
-    <a href="{{ route('index') }}">キャンセル</a>
-  </form>
-
+    <div class="col-sm-8 col-sm-offset-2 mx-auto">
+        <div class="form-group">
+            <label for="name"><span class="badge badge-danger">必須</span> 商品名</label>
+            <input type="text" id="name" name="name" class="form-control" placeholder="例：かわいいワンピース" autofocus required>
+        </div>
+        <div class="form-group">
+            <label for="bland"><span class="badge badge-danger">必須</span> ブランド</label>
+            <input type="text" id="bland" name="bland" class="form-control" placeholder="例：bear" required>
+        </div>
+        <div class="form-group">
+            <label for="image"><span class="badge badge-danger">必須</span> 画像</label>
+            <input type="file" id="image" name="image" required>
+        </div>
+        <div class="form-group">
+            <label for="price"><span class="badge badge-danger">必須</span> 値段</label>
+            <input type="text" id="price" name="price" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="line"><span class="badge badge-danger">必須</span> 形</label>
+            <input type="text" id="line" name="line" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="dress_length"><span class="badge badge-danger">必須</span> 着丈</label>
+            <input type="text" id="dress_length" name="dress_length" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="url"><span class="badge badge-danger">必須</span> URL</label>
+            <input type="text" id="url" name="url" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">作成</button>
+        <a href="{{ route('index') }}">キャンセル</a>
+    </div>
+</form>
 @endsection
+    
