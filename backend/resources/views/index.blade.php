@@ -55,6 +55,5 @@
     @endif
   </div>
 </div>
-<a href="{{ route('create') }}">商品を追加</a>
 
 @endsection

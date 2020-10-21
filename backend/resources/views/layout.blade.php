@@ -60,6 +60,11 @@
                                     <a class="dropdown-item" href="{{ route('bookmark') }}">
                                         MyPage
                                     </a>
+                                    @can('admin')
+                                    <a class="dropdown-item" href="{{ route('adminpage') }}">
+                                        AdminPage
+                                    </a>
+                                    @endcan
                                 </div>
                             </li>
                         @endguest

@@ -13,7 +13,6 @@ class ItemsController extends Controller
       $items =  Item::latest()->get();
       return view('index', ['items' => $items]);
     }
-
     
     public function create(){
         return view('create');// createのviewをレンダリング
@@ -103,5 +102,10 @@ class ItemsController extends Controller
         }
         $bookmarks = Bookmark::where('user_id', $user_id)->get();
         return view('bookmark', compact('bookmarks', 'message'));
+    }
+
+    public function adminpage(){
+        $items =  Item::latest()->get();
+        return view('adminpage', ['items' => $items]);
     }
 }
