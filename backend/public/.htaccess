@@ -15,7 +15,10 @@
     RewriteRule ^ %1 [L,R=301]
 
     # Send Requests To Front Controller...
-    RewriteCond %{REQUEST_FILENAME} !-d
+    WriteEngine On
+    RewriteBase /laravel/public/
+    RewriteRule ^index\.php$ - [L]
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.php [L]
 </IfModule>
