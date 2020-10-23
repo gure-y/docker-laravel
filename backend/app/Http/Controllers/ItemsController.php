@@ -63,9 +63,9 @@ class ItemsController extends Controller
             \Session::flash('err_msg', 'データがありません');
             return redirect()->route('index');
         }
+        $item = Item::destroy($id);
         $image = Storage::disk('s3');
         $image->delete($id);
-        $item = Item::destroy($id);
         return redirect()->route('index');
     }
 
