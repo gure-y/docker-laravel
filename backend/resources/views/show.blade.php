@@ -5,7 +5,7 @@
   <div class="row">
       <div class="col-md-6 text-left mt-4">
           <a href="{{ route('show', $item->id) }}">
-            <img src="../../uploads/{{ $item->image }}" class="card-img-top">
+            <img src="{{ $item->image }}" class="card-img-top">
           </a>
           <div class="card-body">
             <p class="card-text"><small class="text-muted">　{{ $item->bland }}</small></p>
