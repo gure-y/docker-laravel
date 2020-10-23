@@ -17,7 +17,7 @@
         <div class="card">
           <a href="{{ route('show', $item->id) }}">
             <p class="card-text"><small class="text-muted">　{{ $item->bland }}</small></p>
-            <img src="../../uploads/{{ $item->image }}" class="card-img-top">
+            <img src="{{ $item->image }}" class="card-img-top">
           </a>
           <div class="card-body">
             <p class="card-title">{{ $item->name }}</p>
