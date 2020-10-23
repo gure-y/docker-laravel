@@ -6,6 +6,7 @@ use App\Http\Requests\ItemValid; //バリデーション
 use Illuminate\Support\Facades\Auth; //ユーザー認証
 use App\Models\Item; //itemモデル
 use App\Models\Bookmark; //bookmarkモデル、、、。
+use Storage;
 
 class ItemsController extends Controller
 {
@@ -19,13 +20,6 @@ class ItemsController extends Controller
     }
 
     public function store(ItemValid $request){
-        if ($file = $request->image) {
-            $fileName = time() . $file->getClientOriginalName();
-            $target_path = public_path('uploads/');
-            $file->move($target_path, $fileName);
-        } else {
-            $fileName = "";
-        }
         $item = new item;
         $item->name = $request->name;
         $item->bland = $request->bland;
@@ -33,7 +27,9 @@ class ItemsController extends Controller
         $item->line = $request->line;
         $item->dress_length = $request->dress_length;
         $item->url = $request->url;
-        $item->image = $fileName;
+        $image = $request->file('image');
+        $path = Storage::disk('s3')->putFile('/',$image,'public');
+        $item->image = Storage::disk('s3')->url($path);
         $item->save();
         return redirect()->route('index');
     }
@@ -48,13 +44,6 @@ class ItemsController extends Controller
         return view('edit', ['item' => $item]);
     }
     public function update(ItemValid $request){
-        if ($file = $request->image) {
-            $fileName = time() . $file->getClientOriginalName();
-            $target_path = public_path('uploads/');
-            $file->move($target_path, $fileName);
-        } else {
-            $fileName = "";
-        }
         $item = Item::find($request['id']);
         $item->name = $request->name;
         $item->bland = $request->bland;
@@ -62,7 +51,9 @@ class ItemsController extends Controller
         $item->line = $request->line;
         $item->dress_length = $request->dress_length;
         $item->url = $request->url;
-        $item->image = $fileName;
+        $image = $request->file('image');
+        $path = Storage::disk('s3')->putFile('/',$image,'public');
+        $item->image = Storage::disk('s3')->url($path);
         $item->save();
         return redirect()->route('index');
     }
