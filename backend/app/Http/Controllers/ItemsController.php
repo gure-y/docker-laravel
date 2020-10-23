@@ -64,6 +64,8 @@ class ItemsController extends Controller
             return redirect()->route('index');
         }
         $item = Item::destroy($id);
+        $image = Storage::disk('s3');
+        $image = delete($id);
         return redirect()->route('index');
     }
 

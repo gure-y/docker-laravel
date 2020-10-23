@@ -13,7 +13,7 @@
                 <div class="card">
                     <a href="{{ route('show', $bookmark->item->id) }}">
                         <p class="card-text"><small class="text-muted">　{{ $bookmark->item->bland }}</small></p>
-                        <img src="../../uploads/{{ $bookmark->item->image }}" class="card-img-top">
+                        <img src="{{ $bookmark->item->image }}" class="card-img-top">
                     </a>
                     <div class="card-body">
                         <p class="card-title">{{ $bookmark->item->name }}</p>
