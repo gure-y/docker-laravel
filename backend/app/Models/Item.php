@@ -11,7 +11,7 @@ class Item extends Model
 
     public function bookmark()
   {
-    return $this->hasMany('\App\Models\bookmark');
+    return $this->hasMany('\App\Models\Bookmark');
   }
 
     public static function boot()
