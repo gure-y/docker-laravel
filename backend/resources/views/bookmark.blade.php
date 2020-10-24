@@ -2,8 +2,9 @@
 
 @section('content')
 <div class="text-black-50 text-center border-bottom mt-5">
-  <h5>{{ Auth::user()->name }}mypage</h5>
+  <h5>MY BOOKMARK PRODUCTS</h5>
 </div>
+
 <p class="text-center">{{ $message ?? ''}}</p><br>
 <div class="card-body">
     @foreach($bookmarks as $bookmark)
@@ -16,8 +17,7 @@
                         <img src="{{ $bookmark->item->image }}" class="card-img-top">
                     </a>
                     <div class="card-body">
-                        <p class="card-title">{{ $bookmark->item->name }}</p>
-                        <p class="card-text">¥{{ $bookmark->item->price }}</p>
+                        <p class="card-text">¥{{ $bookmark->item->price }}<small class="text-muted"> 税込</small></p>
                     </div>
                 </div>
             </div>
