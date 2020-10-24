@@ -2,8 +2,9 @@
 
 @section('content')
 <div class="text-black-50 text-center border-bottom mt-5">
-  <h5>{{ Auth::user()->name }}mypage</h5>
+  <h5>MY BOOKMARK PRODUCTS</h5>
 </div>
+
 <p class="text-center">{{ $message ?? ''}}</p><br>
 <div class="card-body">
     @foreach($bookmarks as $bookmark)
