@@ -55,4 +55,9 @@
   </div>
 </div>
 
+<div class="text-black-50 text-center">
+  <a href="{{ url('/') }}">
+    <button type="button" class="btn btn-outline-secondary">VIEW ALL</button>
+  </a>
+</div>
 @endsection
