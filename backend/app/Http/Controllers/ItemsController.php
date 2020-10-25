@@ -101,4 +101,9 @@ class ItemsController extends Controller
         $items =  Item::latest()->get();
         return view('adminpage', ['items' => $items]);
     }
+
+    public function list(){
+        $items =  Item::latest()->get();
+        return view('list', ['items' => $items]);
+    }
 }
