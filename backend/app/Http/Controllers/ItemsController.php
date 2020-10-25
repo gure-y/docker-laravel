@@ -11,7 +11,7 @@ use Storage;
 class ItemsController extends Controller
 {
     public function index(){
-      $items =  Item::latest()->get();
+      $items =  Item::inRandomOrder()->take(4)->get();
       return view('index', ['items' => $items]);
     }
     
@@ -100,5 +100,10 @@ class ItemsController extends Controller
     public function adminpage(){
         $items =  Item::latest()->get();
         return view('adminpage', ['items' => $items]);
+    }
+
+    public function list(){
+        $items =  Item::latest()->get();
+        return view('list', ['items' => $items]);
     }
 }

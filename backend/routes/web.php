@@ -20,6 +20,8 @@ Route::get('/show/{id}', [ItemsController::class, 'show'])->name('show');
 Route::get('/bookmark', [ItemsController::class, 'bookmark'])->name('bookmark');
 Route::post('/bookmark', [ItemsController::class, 'addBookmark'])->name('addBookmark');
 
+Route::get('/list', [ItemsController::class, 'list'])->name('list');
+
 //管理者ユーザーにのみ許可
 Route::prefix('admin')->middleware('can:admin')->group(function() {
   Route::get('/create',[ItemsController::class, 'create'])->name('create');

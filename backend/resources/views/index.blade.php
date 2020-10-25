@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', '商品一覧')
+@section('title', 'Larapiece')
 @section('content')
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -56,7 +56,7 @@
 </div>
 
 <div class="text-black-50 text-center">
-  <a href="{{ url('/') }}">
+  <a href="{{ route('list') }}">
     <button type="button" class="btn btn-outline-secondary">VIEW ALL</button>
   </a>
 </div>
