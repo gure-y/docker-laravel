@@ -11,7 +11,7 @@ use Storage;
 class ItemsController extends Controller
 {
     public function index(){
-      $items =  Item::latest()->get();
+      $items =  Item::inRandomOrder()->take(4)->get();
       return view('index', ['items' => $items]);
     }
     
