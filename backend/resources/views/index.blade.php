@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', '商品一覧')
+@section('title', 'Larapiece')
 @section('content')
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
