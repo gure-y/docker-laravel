@@ -141,7 +141,7 @@ class ItemsController extends Controller
         $query->where('price', '<=', $searchPrice)->get();
         }
 
-        $data = $query->paginate(10);
+        $data = $query->paginate(15);
 
         return view('search', ['data' => $data]);
     }
