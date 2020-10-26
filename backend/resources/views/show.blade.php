@@ -15,7 +15,7 @@
       <div class="col-sm-10 col-lg-4 text-left text-black-50 ">
         <p><small class="text-muted">ブランド：{{ $item->bland }}</small></p>
         <p>{{ $item->name }}</p>
-        <h5>¥{{ $item->price }}<small class="text-muted">(税込)</small></h5>
+        <h5>¥{{ $item->price }}<small class="text-muted">（tax incl.）</small></h5>
         <p>形：{{ $item->line }}ワンピース</p>
         <p>総丈：{{ $item->dress_length }} cm</p>
         <a href="{{ $item->url }}" class="btn btn-outline-secondary mb-1">買いに行く？</a>

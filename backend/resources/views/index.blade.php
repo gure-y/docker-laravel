@@ -46,7 +46,7 @@
             <img src="{{ $item->image }}" class="card-img-top">
           </a>
           <div class="card-body">
-            <p class="card-text">¥{{ $item->price }}<small class="text-muted"> 税込</small></p>
+            <p class="card-text">¥{{ $item->price }}<small class="text-muted">（tax incl.）</small></p>
           </div>
         </div>
       </div>
