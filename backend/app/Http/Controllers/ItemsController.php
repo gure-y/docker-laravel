@@ -106,4 +106,43 @@ class ItemsController extends Controller
         $items =  Item::latest()->get();
         return view('list', ['items' => $items]);
     }
+
+    public function search(Request $request){
+        $query = Item::query();
+
+        $searchName = $request->input('name');
+        $searchPrice = $request->input('price');
+        $searchLine = $request->input('line');
+        $searchBland = $request->input('bland');
+        $searchLengthMin = $request->input('min_dress_length');
+        $searchLengthMax = $request->input('max_dress_length');
+
+        if ($request->filled('name')) {
+            $query->where('name', 'like', '%'.$searchName.'%')->get(); //部分一致検索
+        }
+
+        if ($request->filled('line') && $searchLine != ('指定なし')) {
+            $query->where('line', $searchLine)->get();
+        }
+        
+        if ($request->filled('bland') && $searchBland != ('指定なし')) {
+            $query->where('bland', $searchBland)->get();
+        }
+
+        if ($request->filled('min_dress_length') && $request->filled('max_dress_length')) {
+            $query->whereBetween('dress_length', [$searchLengthMin, $searchLengthMax])->get();
+        } elseif ($request->filled('min_dress_length')) {
+            $query->where('dress_length', '>=', $searchLengthMin)->get();
+        } elseif ($request->filled('max_dress_length')) {
+            $query->where('dress_length', '<=', $searchLengthMax)->get();
+        }
+        
+        if ($request->filled('price')) {
+        $query->where('price', '<=', $searchPrice)->get();
+        }
+
+        $data = $query->paginate(15);
+
+        return view('search', ['data' => $data]);
+    }
 }

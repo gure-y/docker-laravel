@@ -22,6 +22,8 @@ Route::post('/bookmark', [ItemsController::class, 'addBookmark'])->name('addBook
 
 Route::get('/list', [ItemsController::class, 'list'])->name('list');
 
+Route::get('/search', [ItemsController::class, 'search'])->name('search');
+
 //管理者ユーザーにのみ許可
 Route::prefix('admin')->middleware('can:admin')->group(function() {
   Route::get('/create',[ItemsController::class, 'create'])->name('create');
