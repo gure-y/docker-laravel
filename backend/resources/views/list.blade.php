@@ -40,10 +40,9 @@
           <label for="bland">ブランド</label>
           <select id="bland" name="bland" class="form-control">
             <option valie="指定なし">指定なし</option>
-            <option value="bedsidedrama">bedsidedrama</option>
-            <option value="Candy Stripper">Candy Stripper</option>
-            <option value="CIAOPANIC">CIAOPANIC</option>
-            <option value="ehka sopo">ehka sopo</option>
+            <option value="GURE">GURE</option>
+            <option value="Lara bell">Lara bell</option>
+            <option value="bear">bear</option>
           </select>
         </div>
         <div class="text-center">
