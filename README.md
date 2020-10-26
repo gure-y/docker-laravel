@@ -26,8 +26,9 @@ http://larapiece.herokuapp.com/
 #### 特徴的な機能
 ワンピースの総丈や形で欲しいワンピースを検索することができます。
 <br>
-[![Image from Gyazo](https://i.gyazo.com/744ac98b7b33ad70f95c0c99480c0bcc.gif)](https://gyazo.com/744ac98b7b33ad70f95c0c99480c0bcc)
+![744ac98b7b33ad70f95c0c99480c0bcc](https://user-images.githubusercontent.com/68979287/97165363-ece00580-17c6-11eb-943d-0d0e1eb7920f.gif)
 <br>
 #### 実装予定の機能
+<br>
  - 身長別ワンピースガイドの作成
  - 色、形、などより詳細な検索条件の追加
