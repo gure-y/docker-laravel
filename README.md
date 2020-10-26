@@ -3,13 +3,16 @@
 <br>
 #### アプリケーション概要
 ワンピース専門のアプリケーションをDockerでLaravel環境を構築して作成しました。
+<br>
 ワンピースの総丈や形で欲しいワンピースを検索することができます。
 <br>
 <br>
 #### アプリケーションURL
 http://larapiece.herokuapp.com/
 <br>
+<br>
 ゲストログイン用アドレス：guest@example.com
+<br>
 パスワード：password
 <br>
 <br>
